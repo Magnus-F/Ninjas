@@ -20,14 +20,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        if (Physics.Raycast(ray, out hit))
+        if (Input.GetMouseButtonDown(0))
         {
-            if (Input.GetKey(KeyCode.Mouse0))
-            {
-                GameObject obj = Instantiate(block, new Vector3(hit.point.x, hit.point.y, 0), Quaternion.identity) as GameObject;
-            }
+            Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            pos.z = 0;
+            Instantiate(block, pos, Quaternion.identity);
         }
     }
 }
