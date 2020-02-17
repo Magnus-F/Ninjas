@@ -15,27 +15,26 @@ public class PlayerController : MonoBehaviour
     GameObject ghostBlock;
     GameObject[] blocks;
 
+    bool placable
+        ;
+
     // Start is called before the first frame update
     void Start()
     {
         selectedBlock = OBlock;
         ghostBlock = Instantiate(selectedBlock, Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
         Destroy(ghostBlock.GetComponent<Rigidbody2D>());
-        ghostBlock.GetComponent<BoxCollider2D>().enabled = false;
+        ghostBlock.GetComponent<BoxCollider2D>().isTrigger = true;
         ghostBlock.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, .0f);
         ghostBlock.tag = "Untagged";
-
+        placable = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        bool placable = true;
-        if (Input.GetMouseButtonDown(0))
-        {
-            blocks = GameObject.FindGameObjectsWithTag("Block");
-        }
-
+        
+        
 
 
         ghostBlock.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, .0f);
@@ -45,28 +44,36 @@ public class PlayerController : MonoBehaviour
             Vector3 ghostpos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             ghostpos.z = 0;
             ghostBlock.transform.position = ghostpos;
-
+            blocks = GameObject.FindGameObjectsWithTag("Block");
             
-
+            foreach(GameObject g in blocks)
+            {
+                if (ghostBlock.GetComponent<BoxCollider2D>().IsTouching(g.GetComponent<BoxCollider2D>()))
+                {
+                    placable = false;
+                    ghostBlock.GetComponent<SpriteRenderer>().color = new Color(1f, .25f, .25f, .25f);
+                }
+            }
         }
         
 
-        if (Input.GetKeyDown(KeyCode.Keypad0))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             selectedBlock = OBlock;
             Destroy(ghostBlock);
             ghostBlock = Instantiate(selectedBlock, Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
-            ghostBlock.GetComponent<BoxCollider2D>().enabled = false;
+            ghostBlock.GetComponent<BoxCollider2D>().isTrigger = true;
             Destroy(ghostBlock.GetComponent<BoxCollider2D>());
             ghostBlock.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, .0f);
             ghostBlock.tag = "Untagged";
         }
-        if (Input.GetKeyDown(KeyCode.Keypad1))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
+            
             selectedBlock = IBlock;
             Destroy(ghostBlock);
             ghostBlock = Instantiate(selectedBlock, Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
-            ghostBlock.GetComponent<BoxCollider2D>().enabled = false;
+            ghostBlock.GetComponent<BoxCollider2D>().isTrigger = true;
             Destroy(ghostBlock.GetComponent<BoxCollider2D>());
             ghostBlock.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, .0f);
             ghostBlock.tag = "Untagged";
@@ -77,7 +84,12 @@ public class PlayerController : MonoBehaviour
         {
             Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             pos.z = 0;
-            if(placable)Instantiate(selectedBlock, pos, Quaternion.identity);
+            if (placable)
+            { 
+                Instantiate(selectedBlock, pos, Quaternion.identity); 
+            }
+
+            placable = true;
         }
     }
 }
