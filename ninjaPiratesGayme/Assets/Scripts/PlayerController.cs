@@ -33,21 +33,26 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        
-
 
         ghostBlock.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, .0f);
         if (Input.GetMouseButton(0))
         {
+            //makes ghostblock visible
             ghostBlock.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, .25f);
+            
+            //makes ghostblock follow mouse
             Vector3 ghostpos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             ghostpos.z = 0;
             ghostBlock.transform.position = ghostpos;
+
+            //gets all blocks in scene
             blocks = GameObject.FindGameObjectsWithTag("Block");
-            
+
+            placable = true;
+
             foreach(GameObject g in blocks)
             {
+                //checks if ghostblock is overlapping any blocks in scene. If yes, then sets placable to false
                 if (ghostBlock.GetComponent<BoxCollider2D>().IsTouching(g.GetComponent<BoxCollider2D>()))
                 {
                     placable = false;
