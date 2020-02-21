@@ -57,8 +57,8 @@ public class EnemyShipScript : MonoBehaviour
         if (collision.tag == "Tower")
         {
             myLevelManager.ninjaStarCount = 0;
-        }
 
-        Destroy(gameObject);
+            Destroy(gameObject);
+        }
     }
 }

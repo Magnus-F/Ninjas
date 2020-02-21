@@ -38,7 +38,7 @@ public class LevelManager : MonoBehaviour
         ninjaStarText.text = "Ninja Stars: " + ninjaStarCount;
         //Debug.Log(ninjaStarCount);
 
-        /*if(ninjaStarCount >= 1)
+        if(ninjaStarCount >= 10)
         {
             newFloorButton.gameObject.SetActive(true);
         }
@@ -47,7 +47,7 @@ public class LevelManager : MonoBehaviour
             newFloorButton.gameObject.SetActive(false);
         }
 
-        newFloorButton.onClick.AddListener(TaskOnClick);*/
+        newFloorButton.onClick.AddListener(TaskOnClick);
         
     }
 
@@ -105,10 +105,10 @@ public class LevelManager : MonoBehaviour
         ResetColor(objectToAffect);
     }
 
-    void TaskOnClick()
+    public void TaskOnClick()
     {
         Debug.Log("You have clicked the button!");
-        //Instantiate(towerSegment, new Vector3(theGoldBlockScript.goldBlockPosition.position.x, towerHeight, 0f), Quaternion.Euler(new Vector3(0, 0, 0)));
+        Instantiate(towerSegment, new Vector3(theGoldBlockScript.goldBlockPosition.position.x + 1, towerHeight, 0f), Quaternion.Euler(new Vector3(0, 0, 0)));
         //towerHeight += 1;
     }
 }

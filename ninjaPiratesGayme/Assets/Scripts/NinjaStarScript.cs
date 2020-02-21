@@ -24,7 +24,7 @@ public class NinjaStarScript : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            theEnemyShipScript.HurtEnemyMethod(collision.GetComponent<EnemyShipScript>(), 1f);
+            theEnemyShipScript.HurtEnemyMethod(collision.GetComponent<EnemyShipScript>(), 0.5f);
 
             /*if (collision.GetComponent<EnemyShipScript>().enemyHealth > 0)
             {

@@ -33,8 +33,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         ghostBlock.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, .0f);
+
         if (Input.GetMouseButton(0))
         {
             //makes ghostblock visible
