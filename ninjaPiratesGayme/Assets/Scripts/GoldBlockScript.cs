@@ -6,6 +6,7 @@ public class GoldBlockScript : MonoBehaviour
 {
     public GameObject ninjaStar;
     public LevelManager myLevelManager;
+    public Transform goldBlockPosition;
 
     // Start is called before the first frame update
     void Start()

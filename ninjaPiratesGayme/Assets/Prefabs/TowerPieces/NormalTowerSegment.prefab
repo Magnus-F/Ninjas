@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6068176986454186685}
   - component: {fileID: 6068176986454186684}
   - component: {fileID: 6068176986454186675}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TowerPieceCenter
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6068176986657923775}
   - component: {fileID: 6068176986657923768}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 6068176987096871422}
   - component: {fileID: 6068176987096871421}
   - component: {fileID: 6068176987096871420}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TowerPieceRight
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -354,7 +354,7 @@ GameObject:
   - component: {fileID: 6068176987382096815}
   - component: {fileID: 6068176987382096814}
   - component: {fileID: 6068176987382096813}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TowerPieceLeft
   m_TagString: Tower
   m_Icon: {fileID: 0}

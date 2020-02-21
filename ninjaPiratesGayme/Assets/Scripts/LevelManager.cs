@@ -13,12 +13,20 @@ public class LevelManager : MonoBehaviour
     public Transform rightPoint1;
     private Transform spawnPosition;
     public SpriteRenderer theShipSprite;
+    public Button newFloorButton;
+    public GameObject towerSegment;
+    public int towerHeight;
+
+    public GoldBlockScript theGoldBlockScript;
 
     // Start is called before the first frame update
     void Start()
     {
         ninjaStarCount = 0;
         ninjaStarValue = 1;
+        newFloorButton.gameObject.SetActive(false);
+        theGoldBlockScript = FindObjectOfType<GoldBlockScript>();
+        towerHeight = 1;
 
         StartCoroutine(NinjaStarTime());
         StartCoroutine(PirateTime());
@@ -28,12 +36,19 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
         ninjaStarText.text = "Ninja Stars: " + ninjaStarCount;
-        Debug.Log(ninjaStarCount);
+        //Debug.Log(ninjaStarCount);
 
-        if(ninjaStarCount >= 10)
+        /*if(ninjaStarCount >= 1)
         {
-
+            newFloorButton.gameObject.SetActive(true);
         }
+        else
+        {
+            newFloorButton.gameObject.SetActive(false);
+        }
+
+        newFloorButton.onClick.AddListener(TaskOnClick);*/
+        
     }
 
     IEnumerator NinjaStarTime()
@@ -88,5 +103,12 @@ public class LevelManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.25f);
         ResetColor(objectToAffect);
+    }
+
+    void TaskOnClick()
+    {
+        Debug.Log("You have clicked the button!");
+        //Instantiate(towerSegment, new Vector3(theGoldBlockScript.goldBlockPosition.position.x, towerHeight, 0f), Quaternion.Euler(new Vector3(0, 0, 0)));
+        //towerHeight += 1;
     }
 }

@@ -14,6 +14,7 @@ public class EnemyShipScript : MonoBehaviour
     // rigidbody and player objects
     public Rigidbody2D theShipRB;
     public GameObject theShip;
+    public LevelManager myLevelManager;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,7 @@ public class EnemyShipScript : MonoBehaviour
         enemyHealth = maxEnemyHealth;
         moveSpeed = 1;
         goldBlock = GameObject.FindGameObjectWithTag("GoldBlock");
+        myLevelManager = FindObjectOfType<LevelManager>();
     }
 
     // Update is called once per frame
@@ -48,5 +50,15 @@ public class EnemyShipScript : MonoBehaviour
     public void HurtEnemyMethod(EnemyShipScript objectToHurt, float damageToTake)
     {
         objectToHurt.enemyHealth -= damageToTake;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Tower")
+        {
+            myLevelManager.ninjaStarCount = 0;
+        }
+
+        Destroy(gameObject);
     }
 }
