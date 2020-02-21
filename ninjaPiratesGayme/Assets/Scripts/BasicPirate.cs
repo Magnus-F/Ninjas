@@ -63,7 +63,7 @@ public class BasicPirate : MonoBehaviour
 
         if(shootInterval <= 0)
         {
-            Instantiate(CannonBall, transform.position, Quaternion.identity);
+            Destroy(Instantiate(CannonBall, transform.position, Quaternion.identity),3);
             shootInterval = 5;
         }
         else
