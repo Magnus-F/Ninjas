@@ -47,7 +47,7 @@ public class LevelManager : MonoBehaviour
             newFloorButton.gameObject.SetActive(false);
         }
 
-        newFloorButton.onClick.AddListener(TaskOnClick);
+        //newFloorButton.onClick.AddListener(TaskOnClick);
         
     }
 
@@ -108,7 +108,8 @@ public class LevelManager : MonoBehaviour
     public void TaskOnClick()
     {
         Debug.Log("You have clicked the button!");
-        Instantiate(towerSegment, new Vector3(theGoldBlockScript.goldBlockPosition.position.x + 1, towerHeight, 0f), Quaternion.Euler(new Vector3(0, 0, 0)));
-        //towerHeight += 1;
+        Instantiate(towerSegment, new Vector3(theGoldBlockScript.goldBlockPosition.position.x + 2, towerHeight, 0f), Quaternion.Euler(new Vector3(0, 0, 0)));
+        towerHeight += 1;
+        ninjaStarCount -= 10;
     }
 }
