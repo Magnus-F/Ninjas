@@ -8,6 +8,11 @@ public class LevelManager : MonoBehaviour
     public float ninjaStarCount;
     public float ninjaStarValue;
     public Text ninjaStarText;
+    public GameObject pirateShip;
+    public Transform leftPoint1;
+    public Transform rightPoint1;
+    private Transform spawnPosition;
+    public SpriteRenderer theShipSprite;
 
     // Start is called before the first frame update
     void Start()
@@ -16,12 +21,19 @@ public class LevelManager : MonoBehaviour
         ninjaStarValue = 1;
 
         StartCoroutine(NinjaStarTime());
+        StartCoroutine(PirateTime());
     }
 
     // Update is called once per frame
     void Update()
     {
-        ninjaStarText.text = "Ninja Stars: " + ninjaStarCount.ToString();
+        ninjaStarText.text = "Ninja Stars: " + ninjaStarCount;
+        Debug.Log(ninjaStarCount);
+
+        if(ninjaStarCount >= 10)
+        {
+
+        }
     }
 
     IEnumerator NinjaStarTime()
@@ -31,5 +43,50 @@ public class LevelManager : MonoBehaviour
             ninjaStarCount = ninjaStarCount + ninjaStarValue;
             yield return new WaitForSeconds(1);
         }
+    }
+
+    IEnumerator PirateTime()
+    {
+        while (true)
+        {
+            ChooseSpawn();
+            GameObject cloneShip = (GameObject)Instantiate(pirateShip, new Vector3(spawnPosition.position.x, spawnPosition.position.y, 0f), Quaternion.Euler(new Vector3(0, 0, 0)));
+            yield return new WaitForSeconds(5);
+        }
+    }
+
+    void ChooseSpawn()
+    {
+        int spawnNum = Random.Range(1, 3);
+
+        if(spawnNum == 1)
+        {
+            spawnPosition = leftPoint1;
+        }
+        else
+        {
+            spawnPosition = rightPoint1;
+        }
+    }
+
+    public void FlashRed(SpriteRenderer objectToHurt)
+    {
+        objectToHurt.color = Color.red;
+
+        StartCoroutine(ExecuteAfterTime(objectToHurt));
+    }
+
+    public void ResetColor(SpriteRenderer objectToHurt)
+    {
+        if (objectToHurt != null)
+        {
+            objectToHurt.color = theShipSprite.color;
+        }
+    }
+
+    IEnumerator ExecuteAfterTime(SpriteRenderer objectToAffect)
+    {
+        yield return new WaitForSeconds(0.25f);
+        ResetColor(objectToAffect);
     }
 }

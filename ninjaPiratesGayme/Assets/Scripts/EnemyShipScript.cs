@@ -22,6 +22,7 @@ public class EnemyShipScript : MonoBehaviour
         maxEnemyHealth = 2;
         enemyHealth = maxEnemyHealth;
         moveSpeed = 1;
+        goldBlock = GameObject.FindGameObjectWithTag("GoldBlock");
     }
 
     // Update is called once per frame
@@ -44,10 +45,8 @@ public class EnemyShipScript : MonoBehaviour
         theShipRB.velocity = new Vector3(speed, 0f, 0f);
     }
 
-    public void HurtEnemyMethod(float damageToTake)
+    public void HurtEnemyMethod(EnemyShipScript objectToHurt, float damageToTake)
     {
-        enemyHealth -= damageToTake;
-
-        Debug.Log(enemyHealth);
+        objectToHurt.enemyHealth -= damageToTake;
     }
 }
