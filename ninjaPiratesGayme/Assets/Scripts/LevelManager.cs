@@ -108,7 +108,7 @@ public class LevelManager : MonoBehaviour
     public void TaskOnClick()
     {
         Debug.Log("You have clicked the button!");
-        Instantiate(towerSegment, new Vector3(theGoldBlockScript.goldBlockPosition.position.x + 2, towerHeight, 0f), Quaternion.Euler(new Vector3(0, 0, 0)));
+        Instantiate(towerSegment, new Vector3(theGoldBlockScript.goldBlockPosition.position.x, towerHeight, 0f), Quaternion.Euler(new Vector3(0, 0, 0)));
         towerHeight += 1;
         ninjaStarCount -= 10;
     }
