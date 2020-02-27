@@ -15,7 +15,9 @@ public class LevelManager : MonoBehaviour
     public SpriteRenderer theShipSprite;
     public Button newFloorButton;
     public GameObject towerSegment;
+    public GameObject attackTowerSegment;
     public int towerHeight;
+    bool attackTower = false;
 
     public GoldBlockScript theGoldBlockScript;
 
@@ -108,8 +110,21 @@ public class LevelManager : MonoBehaviour
     public void TaskOnClick()
     {
         Debug.Log("You have clicked the button!");
-        Instantiate(towerSegment, new Vector3(theGoldBlockScript.goldBlockPosition.position.x, towerHeight, 0f), Quaternion.Euler(new Vector3(0, 0, 0)));
+        if (attackTower)
+        {
+            Instantiate(attackTowerSegment, new Vector3(theGoldBlockScript.goldBlockPosition.position.x, towerHeight, 0f), Quaternion.Euler(new Vector3(0, 0, 0)));
+        }
+        else
+        {
+            Instantiate(towerSegment, new Vector3(theGoldBlockScript.goldBlockPosition.position.x, towerHeight, 0f), Quaternion.Euler(new Vector3(0, 0, 0)));
+        }
         towerHeight += 1;
         ninjaStarCount -= 10;
+    }
+
+    //sets bool to true/false
+    public void towerSwitch()
+    {
+        attackTower = !attackTower;
     }
 }
