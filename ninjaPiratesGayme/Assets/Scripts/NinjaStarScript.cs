@@ -32,7 +32,7 @@ public class NinjaStarScript : MonoBehaviour
                 theLevelManager.FlashRed(collision.GetComponent<SpriteRenderer>());
             }*/
         }
-        else if(collision.tag == "NinjaStar")
+        else if(collision.tag == "Coin")
         {
             Debug.Log("coin");
             Physics2D.IgnoreCollision(collision.GetComponent<Collider2D>(), GetComponent<Collider2D>());

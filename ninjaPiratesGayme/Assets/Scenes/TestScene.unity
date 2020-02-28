@@ -16789,6 +16789,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theLevelManager: {fileID: 0}
+  canUseRed: 0
+  canUseGreen: 0
+  canUseBlue: 0
+  canUseYellow: 0
+  canUseBlack: 0
+  canUsePurple: 0
+  canUseIndigo: 0
+  canUsePink: 0
 --- !u!1 &1775873174
 GameObject:
   m_ObjectHideFlags: 0

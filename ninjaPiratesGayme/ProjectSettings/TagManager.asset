@@ -9,6 +9,7 @@ TagManager:
   - Tower
   - GoldBlock
   - Enemy
+  - Coin
   layers:
   - Default
   - TransparentFX
