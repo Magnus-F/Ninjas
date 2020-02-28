@@ -476,7 +476,7 @@ RectTransform:
   m_Children:
   - {fileID: 1128595552}
   m_Father: {fileID: 1049879025}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.8235365}
   m_AnchorMax: {x: 0.26880112, y: 0.91200006}
@@ -2817,7 +2817,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &399763731
 GameObject:
@@ -2912,7 +2912,7 @@ GameObject:
   - component: {fileID: 428436767}
   - component: {fileID: 428436766}
   m_Layer: 5
-  m_Name: Text
+  m_Name: NinjaStarText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5512,7 +5512,7 @@ Transform:
   - {fileID: 632317461}
   - {fileID: 1340020339}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &787050051
 Rigidbody2D:
@@ -5747,7 +5747,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &820976492
 GameObject:
@@ -6883,75 +6883,6 @@ Transform:
   m_Father: {fileID: 1194289256}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &930592952
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3987570933048220829, guid: a1c297707f06e1444bfd9305916242ff,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemyShip
-      objectReference: {fileID: 0}
-    - target: {fileID: 8607780298481316028, guid: a1c297707f06e1444bfd9305916242ff,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5.44
-      objectReference: {fileID: 0}
-    - target: {fileID: 8607780298481316028, guid: a1c297707f06e1444bfd9305916242ff,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.0991994
-      objectReference: {fileID: 0}
-    - target: {fileID: 8607780298481316028, guid: a1c297707f06e1444bfd9305916242ff,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -121.4971
-      objectReference: {fileID: 0}
-    - target: {fileID: 8607780298481316028, guid: a1c297707f06e1444bfd9305916242ff,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8607780298481316028, guid: a1c297707f06e1444bfd9305916242ff,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8607780298481316028, guid: a1c297707f06e1444bfd9305916242ff,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8607780298481316028, guid: a1c297707f06e1444bfd9305916242ff,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8607780298481316028, guid: a1c297707f06e1444bfd9305916242ff,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8607780298481316028, guid: a1c297707f06e1444bfd9305916242ff,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8607780298481316028, guid: a1c297707f06e1444bfd9305916242ff,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8607780298481316028, guid: a1c297707f06e1444bfd9305916242ff,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a1c297707f06e1444bfd9305916242ff, type: 3}
 --- !u!1 &935622254
 GameObject:
   m_ObjectHideFlags: 0
@@ -7466,7 +7397,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1026074363
 GameObject:
@@ -7802,10 +7733,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 428436765}
+  - {fileID: 2090577857}
   - {fileID: 1621454561}
   - {fileID: 24898349}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -11315,7 +11247,7 @@ Transform:
   - {fileID: 1601820626}
   - {fileID: 1194289256}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1430020516
 GameObject:
@@ -13614,7 +13546,7 @@ RectTransform:
   m_Children:
   - {fileID: 632962685}
   m_Father: {fileID: 1049879025}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.28, y: 0}
   m_AnchorMax: {x: 0.7211989, y: 0.044154577}
@@ -14631,7 +14563,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1750440603
 MonoBehaviour:
@@ -14648,6 +14580,10 @@ MonoBehaviour:
   ninjaStarCount: 0
   ninjaStarValue: 0
   ninjaStarText: {fileID: 428436766}
+  goldCoinCount: 0
+  goldCoinValue: 0
+  goldCoinText: {fileID: 2090577855}
+  towerHeightText: {fileID: 0}
   pirateShip: {fileID: 3987570933048220829, guid: a1c297707f06e1444bfd9305916242ff,
     type: 3}
   leftPoint1: {fileID: 987888002}
@@ -14659,6 +14595,7 @@ MonoBehaviour:
   attackTowerSegment: {fileID: 5075824835180903728, guid: b32b0e1f70c5eb44cabaace93fd45161,
     type: 3}
   towerHeight: 0
+  towerCost: 0
   theGoldBlockScript: {fileID: 0}
 --- !u!1 &1775873174
 GameObject:
@@ -18027,6 +17964,83 @@ Transform:
   m_Father: {fileID: 1058326073}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2090577854
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2090577857}
+  - component: {fileID: 2090577856}
+  - component: {fileID: 2090577855}
+  m_Layer: 5
+  m_Name: GoldCoinText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2090577855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090577854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 32
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Gold Coins: '
+--- !u!222 &2090577856
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090577854}
+  m_CullTransparentMesh: 0
+--- !u!224 &2090577857
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090577854}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1049879025}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -104, y: -36.699997}
+  m_SizeDelta: {x: 420.30005, y: 72.4}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2094310098
 GameObject:
   m_ObjectHideFlags: 0
@@ -18378,7 +18392,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2145370196
 GameObject:

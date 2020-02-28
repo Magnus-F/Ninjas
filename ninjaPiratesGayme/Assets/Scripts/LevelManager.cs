@@ -8,6 +8,13 @@ public class LevelManager : MonoBehaviour
     public float ninjaStarCount;
     public float ninjaStarValue;
     public Text ninjaStarText;
+
+    public float goldCoinCount;
+    public float goldCoinValue;
+    public Text goldCoinText;
+
+    public Text towerHeightText;
+
     public GameObject pirateShip;
     public Transform leftPoint1;
     public Transform rightPoint1;
@@ -18,6 +25,7 @@ public class LevelManager : MonoBehaviour
     public GameObject attackTowerSegment;
     public int towerHeight;
     bool attackTower = false;
+    public int towerCost;
 
     public GoldBlockScript theGoldBlockScript;
 
@@ -26,9 +34,14 @@ public class LevelManager : MonoBehaviour
     {
         ninjaStarCount = 0;
         ninjaStarValue = 1;
+
+        goldCoinCount = 0;
+        goldCoinValue = 1;
+
         newFloorButton.gameObject.SetActive(false);
         theGoldBlockScript = FindObjectOfType<GoldBlockScript>();
-        towerHeight = 1;
+        towerHeight = 0;
+        towerCost = 0;
 
         StartCoroutine(NinjaStarTime());
         StartCoroutine(PirateTime());
@@ -38,9 +51,11 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
         ninjaStarText.text = "Ninja Stars: " + ninjaStarCount;
-        //Debug.Log(ninjaStarCount);
+        goldCoinText.text = "Gold Coins: " + goldCoinCount;
+        ninjaStarValue = towerHeight * 0.5f;
+        Debug.Log(ninjaStarValue);
 
-        if(ninjaStarCount >= 10)
+        if(ninjaStarCount >= 10+towerCost)
         {
             newFloorButton.gameObject.SetActive(true);
         }
@@ -50,14 +65,14 @@ public class LevelManager : MonoBehaviour
         }
 
         //newFloorButton.onClick.AddListener(TaskOnClick);
-        
+        towerCost = 5 * towerHeight;
     }
 
     IEnumerator NinjaStarTime()
     {
         while (true)
         {
-            ninjaStarCount = ninjaStarCount + ninjaStarValue;
+            ninjaStarCount = ninjaStarCount + ninjaStarValue + 1;
             yield return new WaitForSeconds(1);
         }
     }
@@ -119,7 +134,7 @@ public class LevelManager : MonoBehaviour
             Instantiate(towerSegment, new Vector3(theGoldBlockScript.goldBlockPosition.position.x, towerHeight, 0f), Quaternion.Euler(new Vector3(0, 0, 0)));
         }
         towerHeight += 1;
-        ninjaStarCount -= 10;
+        ninjaStarCount -= 10+towerCost;
     }
 
     //sets bool to true/false

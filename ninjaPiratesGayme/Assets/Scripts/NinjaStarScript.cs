@@ -25,13 +25,21 @@ public class NinjaStarScript : MonoBehaviour
         if (collision.tag == "Enemy")
         {
             theEnemyShipScript.HurtEnemyMethod(collision.GetComponent<EnemyShipScript>(), 0.5f);
+            Destroy(gameObject);
 
             /*if (collision.GetComponent<EnemyShipScript>().enemyHealth > 0)
             {
                 theLevelManager.FlashRed(collision.GetComponent<SpriteRenderer>());
             }*/
         }
-
-        Destroy(gameObject);
+        else if(collision.tag == "NinjaStar")
+        {
+            Debug.Log("coin");
+            Physics2D.IgnoreCollision(collision.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }
