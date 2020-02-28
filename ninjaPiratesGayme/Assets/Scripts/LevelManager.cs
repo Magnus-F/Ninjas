@@ -14,6 +14,8 @@ public class LevelManager : MonoBehaviour
     public Text goldCoinText;
 
     public Text towerHeightText;
+    public Text currentColorText;
+    public string currentColor;
 
     public GameObject pirateShip;
     public Transform leftPoint1;
@@ -21,13 +23,40 @@ public class LevelManager : MonoBehaviour
     private Transform spawnPosition;
     public SpriteRenderer theShipSprite;
     public Button newFloorButton;
-    public GameObject towerSegment;
+
+    // tower segments
+    public GameObject towerSegmentToUse;
+    public GameObject defaultTowerSegment;
+    public GameObject redTowerSegment;
+    public GameObject yellowTowerSegment;
+    public GameObject blueTowerSegment;
+    public GameObject greenTowerSegment;
+    public GameObject blackTowerSegment;
+    public GameObject purpleTowerSegment;
+    public GameObject pinkTowerSegment;
+    public GameObject indigoTowerSegment;
+
+    public GameObject ninjaStarToUse;
+    public GameObject defaultNinjaStar;
+    public GameObject redNinjaStar;
+    public GameObject greenNinjaStar;
+    public GameObject blueNinjaStar;
+    public GameObject yellowNinjaStar;
+    public GameObject blackNinjaStar;
+    public GameObject purpleNinjaStar;
+    public GameObject indigoNinjaStar;
+    public GameObject pinkNinjaStar;
+
     public GameObject attackTowerSegment;
     public int towerHeight;
     bool attackTower = false;
     public int towerCost;
 
     public GoldBlockScript theGoldBlockScript;
+
+    public Button pauseButton;
+    public Button playButton;
+    public GameObject thePauseScreen;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +72,13 @@ public class LevelManager : MonoBehaviour
         towerHeight = 0;
         towerCost = 0;
 
+        towerSegmentToUse = defaultTowerSegment;
+        ninjaStarToUse = defaultNinjaStar;
+
+        playButton.gameObject.SetActive(false);
+        thePauseScreen.SetActive(false);
+        currentColor = "Default";
+
         StartCoroutine(NinjaStarTime());
         StartCoroutine(PirateTime());
     }
@@ -52,8 +88,9 @@ public class LevelManager : MonoBehaviour
     {
         ninjaStarText.text = "Ninja Stars: " + ninjaStarCount;
         goldCoinText.text = "Gold Coins: " + goldCoinCount;
+        towerHeightText.text = "Tower Height: " + towerHeight;
+        currentColorText.text = "Current Color: " + currentColor;
         ninjaStarValue = towerHeight * 0.5f;
-        Debug.Log(ninjaStarValue);
 
         if(ninjaStarCount >= 10+towerCost)
         {
@@ -131,7 +168,7 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-            Instantiate(towerSegment, new Vector3(theGoldBlockScript.goldBlockPosition.position.x, towerHeight, 0f), Quaternion.Euler(new Vector3(0, 0, 0)));
+            Instantiate(towerSegmentToUse, new Vector3(theGoldBlockScript.goldBlockPosition.position.x, towerHeight, 0f), Quaternion.Euler(new Vector3(0, 0, 0)));
         }
         towerHeight += 1;
         ninjaStarCount -= 10+towerCost;
@@ -141,5 +178,28 @@ public class LevelManager : MonoBehaviour
     public void towerSwitch()
     {
         attackTower = !attackTower;
+    }
+
+    // pauses game
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+        playButton.gameObject.SetActive(true);
+        pauseButton.gameObject.SetActive(false);
+        thePauseScreen.SetActive(true);
+
+        //thePauseScreen.SetActive(true);
+        //thePlayer.canMove = false;
+    }
+
+    public void ResumeGame()
+    {
+        //thePauseScreen.SetActive(false);
+        playButton.gameObject.SetActive(false);
+        pauseButton.gameObject.SetActive(true);
+        thePauseScreen.SetActive(false);
+
+        Time.timeScale = 1f;
+        //thePlayer.canMove = true;
     }
 }
