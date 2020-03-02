@@ -71,7 +71,7 @@ public class LevelManager : MonoBehaviour
         ninjaStarCount = 0;
         ninjaStarValue = 1;
 
-        goldCoinCount = 0;
+        goldCoinCount = 5;
         goldCoinValue = 1;
 
         //newFloorButton.gameObject.SetActive(false);
@@ -121,7 +121,7 @@ public class LevelManager : MonoBehaviour
         goldCoinText.text = "Gold Coins: " + goldCoinCount;
         towerHeightText.text = "Tower Height: " + towerHeight;
         currentColorText.text = "Current Color: " + currentColor;
-        ninjaStarValue = towerHeight * 0.5f;
+        ninjaStarValue = towerHeight * 1f;
 
         /*if(ninjaStarCount >= 10+towerCost)
         {
@@ -133,7 +133,7 @@ public class LevelManager : MonoBehaviour
         }*/
 
         //newFloorButton.onClick.AddListener(TaskOnClick);
-        towerCost = 5 * towerHeight;
+        towerCost = 10 * towerHeight;
     }
 
     IEnumerator NinjaStarTime()
