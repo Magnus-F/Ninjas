@@ -16983,6 +16983,7 @@ MonoBehaviour:
   attackTowerSegment: {fileID: 5075824835180903728, guid: b32b0e1f70c5eb44cabaace93fd45161,
     type: 3}
   towerHeight: 0
+  towerSegments: 0
   towerCost: 0
   theGoldBlockScript: {fileID: 0}
   pauseButton: {fileID: 1066119068}
@@ -20402,7 +20403,7 @@ GameObject:
   - component: {fileID: 2075860161}
   m_Layer: 0
   m_Name: sprites_118 (33)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

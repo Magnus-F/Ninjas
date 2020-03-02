@@ -10,6 +10,7 @@ TagManager:
   - GoldBlock
   - Enemy
   - Coin
+  - Ground
   layers:
   - Default
   - TransparentFX

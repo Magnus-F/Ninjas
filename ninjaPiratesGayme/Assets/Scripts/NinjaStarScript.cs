@@ -34,8 +34,11 @@ public class NinjaStarScript : MonoBehaviour
         }
         else if(collision.tag == "Coin")
         {
-            Debug.Log("coin");
             Physics2D.IgnoreCollision(collision.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        }
+        else if (collision.tag == "Ground")
+        {
+            //Physics2D.IgnoreCollision(collision.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         }
         else
         {

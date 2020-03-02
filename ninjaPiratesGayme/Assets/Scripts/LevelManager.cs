@@ -56,6 +56,7 @@ public class LevelManager : MonoBehaviour
 
     public GameObject attackTowerSegment;
     public int towerHeight;
+    public int towerSegments;
     bool attackTower = false;
     public int towerCost;
 
@@ -77,6 +78,7 @@ public class LevelManager : MonoBehaviour
         //newFloorButton.gameObject.SetActive(false);
         theGoldBlockScript = FindObjectOfType<GoldBlockScript>();
         towerHeight = 0;
+        towerSegments = 0;
         towerCost = 0;
 
         towerSegmentToUse = defaultTowerSegment;
@@ -121,7 +123,7 @@ public class LevelManager : MonoBehaviour
         goldCoinText.text = "Gold Coins: " + goldCoinCount;
         towerHeightText.text = "Tower Height: " + towerHeight;
         currentColorText.text = "Current Color: " + currentColor;
-        ninjaStarValue = towerHeight * 1f;
+        ninjaStarValue = towerSegments * 1f;
 
         /*if(ninjaStarCount >= 10+towerCost)
         {
@@ -133,7 +135,7 @@ public class LevelManager : MonoBehaviour
         }*/
 
         //newFloorButton.onClick.AddListener(TaskOnClick);
-        towerCost = 10 * towerHeight;
+        towerCost = 10 * towerSegments;
     }
 
     IEnumerator NinjaStarTime()
@@ -203,6 +205,7 @@ public class LevelManager : MonoBehaviour
                 Instantiate(towerSegmentToUse, new Vector3(theGoldBlockScript.goldBlockPosition.position.x, towerHeight, 0f), Quaternion.Euler(new Vector3(0, 0, 0)));
             }
             towerHeight += 1;
+            towerSegments += 1;
             ninjaStarCount -= 10 + towerCost;
         }
     }
