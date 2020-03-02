@@ -336,7 +336,7 @@ GameObject:
   - component: {fileID: 1920462873224448582}
   - component: {fileID: 5818270500626448017}
   - component: {fileID: 6022297228783492506}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NormalTowerSegmentPink
   m_TagString: Tower
   m_Icon: {fileID: 0}

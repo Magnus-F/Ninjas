@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 6701428279598402575}
   - component: {fileID: 1664147668372289752}
   - component: {fileID: 1456320886294666195}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NormalTowerSegmentYellow
   m_TagString: Tower
   m_Icon: {fileID: 0}

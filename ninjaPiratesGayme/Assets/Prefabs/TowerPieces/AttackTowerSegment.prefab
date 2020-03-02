@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1639233586799298266}
   - component: {fileID: 1639233586799298265}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttackTower
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 1639233586809590277}
   - component: {fileID: 1639233586809590278}
   - component: {fileID: 1639233586809590279}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TowerPieceLeft
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1639233586955219076}
   - component: {fileID: 1639233586955219083}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ninjaStar (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,7 +304,7 @@ GameObject:
   - component: {fileID: 1639233587376092224}
   - component: {fileID: 1639233587376092225}
   - component: {fileID: 1639233587376092226}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TowerPieceRight
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -431,7 +431,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1639233588336023699}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttackTowerSegment
   m_TagString: Untagged
   m_Icon: {fileID: 0}

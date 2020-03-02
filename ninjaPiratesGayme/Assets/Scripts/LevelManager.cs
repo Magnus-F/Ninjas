@@ -136,6 +136,16 @@ public class LevelManager : MonoBehaviour
 
         //newFloorButton.onClick.AddListener(TaskOnClick);
         towerCost = 10 * towerSegments;
+
+        if(Input.deviceOrientation == DeviceOrientation.LandscapeLeft)
+        {
+            //use horizontal stuff
+        }
+        else if(Input.deviceOrientation == DeviceOrientation.Portrait)
+        {
+            //useverticalstuff
+            goldCoinCount += 1;
+        }
     }
 
     IEnumerator NinjaStarTime()
