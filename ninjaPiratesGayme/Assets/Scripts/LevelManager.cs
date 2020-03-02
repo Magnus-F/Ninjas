@@ -17,12 +17,16 @@ public class LevelManager : MonoBehaviour
     public Text currentColorText;
     public string currentColor;
 
+    public bool canBuildTower;
+    public bool canBuildDefense;
+
     public GameObject pirateShip;
     public Transform leftPoint1;
     public Transform rightPoint1;
     private Transform spawnPosition;
     public SpriteRenderer theShipSprite;
     public Button newFloorButton;
+    public Button newDefenseButton;
 
     // tower segments
     public GameObject towerSegmentToUse;
@@ -35,6 +39,9 @@ public class LevelManager : MonoBehaviour
     public GameObject purpleTowerSegment;
     public GameObject pinkTowerSegment;
     public GameObject indigoTowerSegment;
+
+    // attack tower segments
+    public GameObject newAttackTowerSegment;
 
     public GameObject ninjaStarToUse;
     public GameObject defaultNinjaStar;
@@ -67,7 +74,7 @@ public class LevelManager : MonoBehaviour
         goldCoinCount = 0;
         goldCoinValue = 1;
 
-        newFloorButton.gameObject.SetActive(false);
+        //newFloorButton.gameObject.SetActive(false);
         theGoldBlockScript = FindObjectOfType<GoldBlockScript>();
         towerHeight = 0;
         towerCost = 0;
@@ -75,7 +82,10 @@ public class LevelManager : MonoBehaviour
         towerSegmentToUse = defaultTowerSegment;
         ninjaStarToUse = defaultNinjaStar;
 
-        playButton.gameObject.SetActive(false);
+        canBuildTower = false;
+        canBuildDefense = false;
+
+        //playButton.gameObject.SetActive(false);
         thePauseScreen.SetActive(false);
         currentColor = "Default";
 
@@ -86,20 +96,41 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(ninjaStarCount < 10+towerCost)
+        {
+            newFloorButton.GetComponentInChildren<Text>().text = "Ninja Stars Needed: " + ((10 + towerCost)-ninjaStarCount);
+            canBuildTower = false;
+        }
+        else if (ninjaStarCount >= 10 + towerCost)
+        {
+            newFloorButton.GetComponentInChildren<Text>().text = "Add New Floor!";
+            canBuildTower = true;
+        }
+        if (goldCoinCount < 5)
+        {
+            newDefenseButton.GetComponentInChildren<Text>().text = "Gold Coins Needed: " + (5 - goldCoinCount);
+            canBuildDefense = false;
+        }
+        else if (goldCoinCount >= 5)
+        {
+            newDefenseButton.GetComponentInChildren<Text>().text = "Add New Defense!";
+            canBuildDefense = true;
+        }
+
         ninjaStarText.text = "Ninja Stars: " + ninjaStarCount;
         goldCoinText.text = "Gold Coins: " + goldCoinCount;
         towerHeightText.text = "Tower Height: " + towerHeight;
         currentColorText.text = "Current Color: " + currentColor;
         ninjaStarValue = towerHeight * 0.5f;
 
-        if(ninjaStarCount >= 10+towerCost)
+        /*if(ninjaStarCount >= 10+towerCost)
         {
             newFloorButton.gameObject.SetActive(true);
         }
         else
         {
             newFloorButton.gameObject.SetActive(false);
-        }
+        }*/
 
         //newFloorButton.onClick.AddListener(TaskOnClick);
         towerCost = 5 * towerHeight;
@@ -161,17 +192,36 @@ public class LevelManager : MonoBehaviour
 
     public void TaskOnClick()
     {
-        Debug.Log("You have clicked the button!");
-        if (attackTower)
+        if(canBuildTower)
         {
-            Instantiate(attackTowerSegment, new Vector3(theGoldBlockScript.goldBlockPosition.position.x, towerHeight, 0f), Quaternion.Euler(new Vector3(0, 0, 0)));
+            if (attackTower)
+            {
+                Instantiate(attackTowerSegment, new Vector3(theGoldBlockScript.goldBlockPosition.position.x, towerHeight, 0f), Quaternion.Euler(new Vector3(0, 0, 0)));
+            }
+            else
+            {
+                Instantiate(towerSegmentToUse, new Vector3(theGoldBlockScript.goldBlockPosition.position.x, towerHeight, 0f), Quaternion.Euler(new Vector3(0, 0, 0)));
+            }
+            towerHeight += 1;
+            ninjaStarCount -= 10 + towerCost;
         }
-        else
+    }
+
+    public void TaskOnClick2()
+    {
+        if(canBuildDefense)
         {
-            Instantiate(towerSegmentToUse, new Vector3(theGoldBlockScript.goldBlockPosition.position.x, towerHeight, 0f), Quaternion.Euler(new Vector3(0, 0, 0)));
+            if (attackTower)
+            {
+                Instantiate(attackTowerSegment, new Vector3(theGoldBlockScript.goldBlockPosition.position.x, towerHeight, 0f), Quaternion.Euler(new Vector3(0, 0, 0)));
+            }
+            else
+            {
+                Instantiate(newAttackTowerSegment, new Vector3(theGoldBlockScript.goldBlockPosition.position.x, towerHeight, 0f), Quaternion.Euler(new Vector3(0, 0, 0)));
+            }
+            towerHeight += 1;
+            goldCoinCount -= 5;
         }
-        towerHeight += 1;
-        ninjaStarCount -= 10+towerCost;
     }
 
     //sets bool to true/false
