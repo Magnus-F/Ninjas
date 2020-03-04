@@ -7,6 +7,18 @@ public class NinjaStarScript : MonoBehaviour
     public EnemyShipScript theEnemyShipScript;
     public LevelManager theLevelManager;
 
+    Vector3 direction;
+    
+
+    float speed = 0.05f;
+
+
+    public void SetDirection(Vector3 dir)
+    {
+        direction = Vector3.Normalize(dir);
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +29,10 @@ public class NinjaStarScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 temppos = transform.position;
+        temppos += direction * speed;
+        transform.position = temppos;
+
         Destroy(this.gameObject, 3f);
     }
 

@@ -162,7 +162,7 @@ public class LevelManager : MonoBehaviour
         while (true)
         {
             ChooseSpawn();
-            GameObject cloneShip = (GameObject)Instantiate(pirateShip, new Vector3(spawnPosition.position.x, spawnPosition.position.y, 0f), Quaternion.Euler(new Vector3(0, 0, 0)));
+            GameObject cloneShip = (GameObject)Instantiate(pirateShip, new Vector3(spawnPosition.position.x, spawnPosition.position.y, 0.0f), Quaternion.Euler(new Vector3(0, 0, 0)));
             yield return new WaitForSeconds(5);
         }
     }
