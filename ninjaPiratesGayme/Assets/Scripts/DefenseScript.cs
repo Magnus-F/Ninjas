@@ -12,6 +12,8 @@ public class DefenseScript : MonoBehaviour
     public float projectilespeed;
     float verticalrange;
 
+    List<GameObject> stars;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +21,7 @@ public class DefenseScript : MonoBehaviour
         myLevelManager = FindObjectOfType<LevelManager>();
         canShoot = false;
 
-
+        stars = new List<GameObject>();
         verticalrange = 2.0f; // decides the verticle range of the turret's aiming
         projectilespeed = 0.5f; //decides the speed of the ninja star
     }
@@ -37,17 +39,17 @@ public class DefenseScript : MonoBehaviour
 
             GameObject[] pirates = GameObject.FindGameObjectsWithTag("Enemy");
 
-            GameObject closestrightpirate = new GameObject();
-            GameObject closestleftpirate = new GameObject();
+            GameObject closestrightpirate = pirates[0];
+            GameObject closestleftpirate;
 
             float crpd = 10000.0f;
-            float clpd = 10000.0f;
+            //float clpd = 10000.0f;
 
             
 
             foreach(GameObject e in pirates)
             {
-                if (e.transform.position.y < transform.position.y + verticalrange && e.transform.position.y > transform.position.y - verticalrange)
+                /*if (e.transform.position.y < transform.position.y + verticalrange && e.transform.position.y > transform.position.y - verticalrange)
                 {
                     if (e.transform.position.x > transform.position.x)
                     {
@@ -67,24 +69,34 @@ public class DefenseScript : MonoBehaviour
 
                         }
                     }
+                }*/
+
+                if (Vector3.Distance(transform.position, e.transform.position) < crpd && e.transform.position.y < transform.position.y + verticalrange && e.transform.position.y < transform.position.y - verticalrange)
+                {
+                    crpd = Vector3.Distance(transform.position, e.transform.position);
+                    closestrightpirate = e;
                 }
                 
             }
 
-            if (closestrightpirate.tag == "Enemy") {
-                GameObject projectile2 = Instantiate(myLevelManager.ninjaStarToUse, new Vector3(this.transform.position.x + 2, this.transform.position.y, this.transform.position.z), this.transform.rotation);
-                Vector3 spd = closestleftpirate.transform.position - transform.position;
-                spd = Vector3.Normalize(spd) * projectilespeed;
-                projectile2.GetComponent<Rigidbody2D>().velocity = spd;
+            Debug.Log(crpd);
+            if (closestrightpirate.tag == "Enemy" && pirates.Length > 0 && crpd <= 8.0f) {
+                GameObject projectile2 = Instantiate(myLevelManager.ninjaStarToUse, new Vector3(this.transform.position.x, this.transform.position.y, 0.0f), this.transform.rotation);
+                Vector3 spd = closestrightpirate.transform.position- transform.position ;
+                Debug.Log(closestrightpirate.transform.position);
+                projectile2.GetComponent<NinjaStarScript>().SetDirection(spd);
+
+                
             }
 
-            if(closestleftpirate.tag == "Enemy")
+            /*if(closestleftpirate.tag == "Enemy")
             {
                 GameObject projectile1 = Instantiate(myLevelManager.ninjaStarToUse, new Vector3(this.transform.position.x - 2, this.transform.position.y, this.transform.position.z), this.transform.rotation);
-                Vector3 spd = closestrightpirate.transform.position - transform.position;
-                spd = Vector3.Normalize(spd) * projectilespeed;
-                projectile1.GetComponent<Rigidbody2D>().velocity = spd;
-            }
+                Vector3 spd = closestrightpirate.transform.position - transform.position ;
+                projectile1.GetComponent<NinjaStarScript>().SetDirection(spd);
+
+                
+            }*/
 
 
             
@@ -108,7 +120,7 @@ public class DefenseScript : MonoBehaviour
         }
 
         cannonTimer += Time.deltaTime;
-
+        
         
     }
 }

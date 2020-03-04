@@ -31,6 +31,9 @@ public class EnemyShipScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 temppos = transform.position;
+        temppos.z = 0.0f;
+        transform.position = temppos;
         if (theShip.transform.position.x > goldBlock.transform.position.x)
         {
             speed = -moveSpeed;
