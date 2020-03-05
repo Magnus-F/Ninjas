@@ -23,6 +23,22 @@ public class LevelManager : MonoBehaviour
     public GameObject pirateShip;
     public Transform leftPoint1;
     public Transform rightPoint1;
+    public Transform leftPoint2;
+    public Transform rightPoint2;
+    public Transform leftPoint3;
+    public Transform rightPoint3;
+    public Transform leftPoint4;
+    public Transform rightPoint4;
+    public Transform leftPoint5;
+    public Transform rightPoint5;
+    public Transform leftPoint6;
+    public Transform rightPoint6;
+    public Transform leftPoint7;
+    public Transform rightPoint7;
+    public Transform leftPoint8;
+    public Transform rightPoint8;
+
+    public float pirateTime;
     private Transform spawnPosition;
     public SpriteRenderer theShipSprite;
     public Button newFloorButton;
@@ -80,6 +96,7 @@ public class LevelManager : MonoBehaviour
         towerHeight = 0;
         towerSegments = 0;
         towerCost = 0;
+        pirateTime = 5;
 
         towerSegmentToUse = defaultTowerSegment;
         ninjaStarToUse = defaultNinjaStar;
@@ -163,21 +180,353 @@ public class LevelManager : MonoBehaviour
         {
             ChooseSpawn();
             GameObject cloneShip = (GameObject)Instantiate(pirateShip, new Vector3(spawnPosition.position.x, spawnPosition.position.y, 0.0f), Quaternion.Euler(new Vector3(0, 0, 0)));
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(pirateTime);
         }
     }
 
     void ChooseSpawn()
     {
-        int spawnNum = Random.Range(1, 3);
-
-        if(spawnNum == 1)
+        // starting floor
+        if(towerHeight == 0)
         {
-            spawnPosition = leftPoint1;
+            int spawnNum = Random.Range(1, 3);
+            if (spawnNum == 1)
+            {
+                spawnPosition = leftPoint1;
+            }
+            else
+            {
+                spawnPosition = rightPoint1;
+            }
+            pirateTime = 5;
         }
+
+        // tower has been built once
+        else if (towerHeight == 1)
+        {
+            int spawnNum = Random.Range(1, 5);
+            if (spawnNum == 1)
+            {
+                spawnPosition = leftPoint1;
+            }
+            else if (spawnNum == 2)
+            {
+                spawnPosition = rightPoint1;
+            }
+            else if (spawnNum == 3)
+            {
+                spawnPosition = leftPoint2;
+            }
+            else if (spawnNum == 4)
+            {
+                spawnPosition = rightPoint2;
+            }
+            pirateTime = 4.5f;
+        }
+
+        // tower has been built twice
+        else if (towerHeight == 2)
+        {
+            int spawnNum = Random.Range(1, 7);
+            if (spawnNum == 1)
+            {
+                spawnPosition = leftPoint1;
+            }
+            else if (spawnNum == 2)
+            {
+                spawnPosition = rightPoint1;
+            }
+            else if (spawnNum == 3)
+            {
+                spawnPosition = leftPoint2;
+            }
+            else if (spawnNum == 4)
+            {
+                spawnPosition = rightPoint2;
+            }
+            else if (spawnNum == 5)
+            {
+                spawnPosition = leftPoint3;
+            }
+            else if (spawnNum == 6)
+            {
+                spawnPosition = rightPoint3;
+            }
+            pirateTime = 4f;
+        }
+        // tower has been built three times
+        else if (towerHeight == 3)
+        {
+            int spawnNum = Random.Range(1, 9);
+            if (spawnNum == 1)
+            {
+                spawnPosition = leftPoint1;
+            }
+            else if (spawnNum == 2)
+            {
+                spawnPosition = rightPoint1;
+            }
+            else if (spawnNum == 3)
+            {
+                spawnPosition = leftPoint2;
+            }
+            else if (spawnNum == 4)
+            {
+                spawnPosition = rightPoint2;
+            }
+            else if (spawnNum == 5)
+            {
+                spawnPosition = leftPoint3;
+            }
+            else if (spawnNum == 6)
+            {
+                spawnPosition = rightPoint3;
+            }
+            else if (spawnNum == 7)
+            {
+                spawnPosition = leftPoint4;
+            }
+            else if (spawnNum == 8)
+            {
+                spawnPosition = rightPoint4;
+            }
+            pirateTime = 3.5f;
+        }
+
+        // tower has been built four times
+        else if (towerHeight == 4)
+        {
+            int spawnNum = Random.Range(1, 11);
+            if (spawnNum == 1)
+            {
+                spawnPosition = leftPoint1;
+            }
+            else if (spawnNum == 2)
+            {
+                spawnPosition = rightPoint1;
+            }
+            else if (spawnNum == 3)
+            {
+                spawnPosition = leftPoint2;
+            }
+            else if (spawnNum == 4)
+            {
+                spawnPosition = rightPoint2;
+            }
+            else if (spawnNum == 5)
+            {
+                spawnPosition = leftPoint3;
+            }
+            else if (spawnNum == 6)
+            {
+                spawnPosition = rightPoint3;
+            }
+            else if (spawnNum == 7)
+            {
+                spawnPosition = leftPoint4;
+            }
+            else if (spawnNum == 8)
+            {
+                spawnPosition = rightPoint4;
+            }
+            else if (spawnNum == 9)
+            {
+                spawnPosition = leftPoint5;
+            }
+            else if (spawnNum == 10)
+            {
+                spawnPosition = rightPoint5;
+            }
+            pirateTime = 3f;
+        }
+
+        // tower has been built five times
+        else if (towerHeight == 5)
+        {
+            int spawnNum = Random.Range(1, 13);
+            if (spawnNum == 1)
+            {
+                spawnPosition = leftPoint1;
+            }
+            else if (spawnNum == 2)
+            {
+                spawnPosition = rightPoint1;
+            }
+            else if (spawnNum == 3)
+            {
+                spawnPosition = leftPoint2;
+            }
+            else if (spawnNum == 4)
+            {
+                spawnPosition = rightPoint2;
+            }
+            else if (spawnNum == 5)
+            {
+                spawnPosition = leftPoint3;
+            }
+            else if (spawnNum == 6)
+            {
+                spawnPosition = rightPoint3;
+            }
+            else if (spawnNum == 7)
+            {
+                spawnPosition = leftPoint4;
+            }
+            else if (spawnNum == 8)
+            {
+                spawnPosition = rightPoint4;
+            }
+            else if (spawnNum == 9)
+            {
+                spawnPosition = leftPoint5;
+            }
+            else if (spawnNum == 10)
+            {
+                spawnPosition = rightPoint5;
+            }
+            else if (spawnNum == 11)
+            {
+                spawnPosition = leftPoint6;
+            }
+            else if (spawnNum == 12)
+            {
+                spawnPosition = rightPoint6;
+            }
+            pirateTime = 2.5f;
+        }
+
+        // tower has been built six times
+        else if (towerHeight == 6)
+        {
+            int spawnNum = Random.Range(1, 15);
+            if (spawnNum == 1)
+            {
+                spawnPosition = leftPoint1;
+            }
+            else if (spawnNum == 2)
+            {
+                spawnPosition = rightPoint1;
+            }
+            else if (spawnNum == 3)
+            {
+                spawnPosition = leftPoint2;
+            }
+            else if (spawnNum == 4)
+            {
+                spawnPosition = rightPoint2;
+            }
+            else if (spawnNum == 5)
+            {
+                spawnPosition = leftPoint3;
+            }
+            else if (spawnNum == 6)
+            {
+                spawnPosition = rightPoint3;
+            }
+            else if (spawnNum == 7)
+            {
+                spawnPosition = leftPoint4;
+            }
+            else if (spawnNum == 8)
+            {
+                spawnPosition = rightPoint4;
+            }
+            else if (spawnNum == 9)
+            {
+                spawnPosition = leftPoint5;
+            }
+            else if (spawnNum == 10)
+            {
+                spawnPosition = rightPoint5;
+            }
+            else if (spawnNum == 11)
+            {
+                spawnPosition = leftPoint6;
+            }
+            else if (spawnNum == 12)
+            {
+                spawnPosition = rightPoint6;
+            }
+            else if (spawnNum == 13)
+            {
+                spawnPosition = leftPoint7;
+            }
+            else if (spawnNum == 14)
+            {
+                spawnPosition = rightPoint7;
+            }
+            pirateTime = 2f;
+        }
+
+        // tower is higher
         else
         {
-            spawnPosition = rightPoint1;
+            int spawnNum = Random.Range(1, 17);
+            if (spawnNum == 1)
+            {
+                spawnPosition = leftPoint1;
+            }
+            else if (spawnNum == 2)
+            {
+                spawnPosition = rightPoint1;
+            }
+            else if (spawnNum == 3)
+            {
+                spawnPosition = leftPoint2;
+            }
+            else if (spawnNum == 4)
+            {
+                spawnPosition = rightPoint2;
+            }
+            else if (spawnNum == 5)
+            {
+                spawnPosition = leftPoint3;
+            }
+            else if (spawnNum == 6)
+            {
+                spawnPosition = rightPoint3;
+            }
+            else if (spawnNum == 7)
+            {
+                spawnPosition = leftPoint4;
+            }
+            else if (spawnNum == 8)
+            {
+                spawnPosition = rightPoint4;
+            }
+            else if (spawnNum == 9)
+            {
+                spawnPosition = leftPoint5;
+            }
+            else if (spawnNum == 10)
+            {
+                spawnPosition = rightPoint5;
+            }
+            else if (spawnNum == 11)
+            {
+                spawnPosition = leftPoint6;
+            }
+            else if (spawnNum == 12)
+            {
+                spawnPosition = rightPoint6;
+            }
+            else if (spawnNum == 13)
+            {
+                spawnPosition = leftPoint7;
+            }
+            else if (spawnNum == 14)
+            {
+                spawnPosition = rightPoint7;
+            }
+            else if (spawnNum == 15)
+            {
+                spawnPosition = leftPoint8;
+            }
+            else if (spawnNum == 16)
+            {
+                spawnPosition = rightPoint8;
+            }
+            pirateTime = 1.5f;
         }
     }
 
