@@ -70,6 +70,15 @@ public class LevelManager : MonoBehaviour
     public GameObject indigoNinjaStar;
     public GameObject pinkNinjaStar;
 
+    public GameObject redButton;
+    public GameObject greenButton;
+    public GameObject blueButton;
+    public GameObject yellowButton;
+    public GameObject blackButton;
+    public GameObject purpleButton;
+    public GameObject indigoButton;
+    public GameObject pinkButton;
+
     public GameObject attackTowerSegment;
     public int towerHeight;
     public int towerSegments;

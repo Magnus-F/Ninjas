@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopScript : MonoBehaviour
 {
@@ -49,13 +50,14 @@ public class ShopScript : MonoBehaviour
             theLevelManager.towerSegmentToUse = theLevelManager.redTowerSegment;
             theLevelManager.ninjaStarToUse = theLevelManager.redNinjaStar;
         }
-        else if (theLevelManager.goldCoinCount >= 3 && !canUseRed)
+        else if (theLevelManager.goldCoinCount >= 5 && !canUseRed)
         {
             canUseRed = true;
             theLevelManager.currentColor = "Red";
             theLevelManager.towerSegmentToUse = theLevelManager.redTowerSegment;
             theLevelManager.ninjaStarToUse = theLevelManager.redNinjaStar;
-            theLevelManager.goldCoinCount -= 3;
+            theLevelManager.goldCoinCount -= 5;
+            theLevelManager.redButton.GetComponentInChildren<Text>().text = "Red (Bought)";
         }
     }
 
@@ -67,13 +69,14 @@ public class ShopScript : MonoBehaviour
             theLevelManager.towerSegmentToUse = theLevelManager.greenTowerSegment;
             theLevelManager.ninjaStarToUse = theLevelManager.greenNinjaStar;
         }
-        else if (theLevelManager.goldCoinCount >= 3 && !canUseGreen)
+        else if (theLevelManager.goldCoinCount >= 5 && !canUseGreen)
         {
             canUseGreen = true;
             theLevelManager.currentColor = "Green";
             theLevelManager.towerSegmentToUse = theLevelManager.greenTowerSegment;
             theLevelManager.ninjaStarToUse = theLevelManager.greenNinjaStar;
-            theLevelManager.goldCoinCount -= 3;
+            theLevelManager.goldCoinCount -= 5;
+            theLevelManager.greenButton.GetComponentInChildren<Text>().text = "Green (Bought)";
         }
     }
 
@@ -85,13 +88,14 @@ public class ShopScript : MonoBehaviour
             theLevelManager.towerSegmentToUse = theLevelManager.blueTowerSegment;
             theLevelManager.ninjaStarToUse = theLevelManager.blueNinjaStar;
         }
-        else if (theLevelManager.goldCoinCount >= 3 && !canUseBlue)
+        else if (theLevelManager.goldCoinCount >= 5 && !canUseBlue)
         {
             canUseBlue = true;
-            theLevelManager.currentColor = "Red";
-            theLevelManager.towerSegmentToUse = theLevelManager.redTowerSegment;
-            theLevelManager.ninjaStarToUse = theLevelManager.redNinjaStar;
-            theLevelManager.goldCoinCount -= 3;
+            theLevelManager.currentColor = "Blue";
+            theLevelManager.towerSegmentToUse = theLevelManager.blueTowerSegment;
+            theLevelManager.ninjaStarToUse = theLevelManager.blueNinjaStar;
+            theLevelManager.goldCoinCount -= 5;
+            theLevelManager.blueButton.GetComponentInChildren<Text>().text = "Blue (Bought)";
         }
     }
 
@@ -103,13 +107,14 @@ public class ShopScript : MonoBehaviour
             theLevelManager.towerSegmentToUse = theLevelManager.yellowTowerSegment;
             theLevelManager.ninjaStarToUse = theLevelManager.yellowNinjaStar;
         }
-        else if (theLevelManager.goldCoinCount >= 3 && !canUseYellow)
+        else if (theLevelManager.goldCoinCount >= 5 && !canUseYellow)
         {
             canUseYellow = true;
             theLevelManager.currentColor = "Yellow";
             theLevelManager.towerSegmentToUse = theLevelManager.yellowTowerSegment;
             theLevelManager.ninjaStarToUse = theLevelManager.yellowNinjaStar;
-            theLevelManager.goldCoinCount -= 3;
+            theLevelManager.goldCoinCount -= 5;
+            theLevelManager.yellowButton.GetComponentInChildren<Text>().text = "Yellow (Bought)";
         }
     }
 
@@ -121,13 +126,14 @@ public class ShopScript : MonoBehaviour
             theLevelManager.towerSegmentToUse = theLevelManager.blackTowerSegment;
             theLevelManager.ninjaStarToUse = theLevelManager.blackNinjaStar;
         }
-        else if (theLevelManager.goldCoinCount >= 3 && !canUseBlack)
+        else if (theLevelManager.goldCoinCount >= 5 && !canUseBlack)
         {
             canUseBlack = true;
             theLevelManager.currentColor = "Black";
             theLevelManager.towerSegmentToUse = theLevelManager.blackTowerSegment;
             theLevelManager.ninjaStarToUse = theLevelManager.blackNinjaStar;
-            theLevelManager.goldCoinCount -= 3;
+            theLevelManager.goldCoinCount -= 5;
+            theLevelManager.blackButton.GetComponentInChildren<Text>().text = "Black (Bought)";
         }
     }
 
@@ -139,13 +145,14 @@ public class ShopScript : MonoBehaviour
             theLevelManager.towerSegmentToUse = theLevelManager.purpleTowerSegment;
             theLevelManager.ninjaStarToUse = theLevelManager.purpleNinjaStar;
         }
-        else if (theLevelManager.goldCoinCount >= 3 && !canUsePurple)
+        else if (theLevelManager.goldCoinCount >= 5 && !canUsePurple)
         {
             canUsePurple = true;
             theLevelManager.currentColor = "Purple";
             theLevelManager.towerSegmentToUse = theLevelManager.purpleTowerSegment;
             theLevelManager.ninjaStarToUse = theLevelManager.purpleNinjaStar;
-            theLevelManager.goldCoinCount -= 3;
+            theLevelManager.goldCoinCount -= 5;
+            theLevelManager.purpleButton.GetComponentInChildren<Text>().text = "Purple (Bought)";
         }
     }
 
@@ -157,13 +164,14 @@ public class ShopScript : MonoBehaviour
             theLevelManager.towerSegmentToUse = theLevelManager.indigoTowerSegment;
             theLevelManager.ninjaStarToUse = theLevelManager.indigoNinjaStar;
         }
-        else if (theLevelManager.goldCoinCount >= 3 && !canUseIndigo)
+        else if (theLevelManager.goldCoinCount >= 5 && !canUseIndigo)
         {
             canUseIndigo = true;
             theLevelManager.currentColor = "Indigo";
             theLevelManager.towerSegmentToUse = theLevelManager.indigoTowerSegment;
             theLevelManager.ninjaStarToUse = theLevelManager.indigoNinjaStar;
-            theLevelManager.goldCoinCount -= 3;
+            theLevelManager.goldCoinCount -= 5;
+            theLevelManager.indigoButton.GetComponentInChildren<Text>().text = "Indigo (Bought)";
         }
     }
 
@@ -175,13 +183,14 @@ public class ShopScript : MonoBehaviour
             theLevelManager.towerSegmentToUse = theLevelManager.pinkTowerSegment;
             theLevelManager.ninjaStarToUse = theLevelManager.pinkNinjaStar;
         }
-        else if (theLevelManager.goldCoinCount >= 3 && !canUsePink)
+        else if (theLevelManager.goldCoinCount >= 5 && !canUsePink)
         {
             canUsePink = true;
             theLevelManager.currentColor = "Pink";
             theLevelManager.towerSegmentToUse = theLevelManager.pinkTowerSegment;
             theLevelManager.ninjaStarToUse = theLevelManager.pinkNinjaStar;
-            theLevelManager.goldCoinCount -= 3;
+            theLevelManager.goldCoinCount -= 5;
+            theLevelManager.pinkButton.GetComponentInChildren<Text>().text = "Pink (Bought)";
         }
     }
 }
