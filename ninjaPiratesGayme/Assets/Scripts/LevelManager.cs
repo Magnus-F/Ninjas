@@ -14,7 +14,7 @@ public class LevelManager : MonoBehaviour
     public Text goldCoinText;
 
     public Text towerHeightText;
-    public Text currentColorText;
+    public Text coinShopText;
     public string currentColor;
 
     public bool canBuildTower;
@@ -126,29 +126,32 @@ public class LevelManager : MonoBehaviour
     {
         if(ninjaStarCount < 10+towerCost)
         {
-            newFloorButton.GetComponentInChildren<Text>().text = "Ninja Stars Needed: " + ((10 + towerCost)-ninjaStarCount);
+            //newFloorButton.GetComponentInChildren<Text>().text = "Ninja Stars Needed: " + ((10 + towerCost)-ninjaStarCount);
+            newFloorButton.interactable = false;
             canBuildTower = false;
         }
         else if (ninjaStarCount >= 10 + towerCost)
         {
-            newFloorButton.GetComponentInChildren<Text>().text = "Add New Floor!";
+            //newFloorButton.GetComponentInChildren<Text>().text = "Add New Floor!";
+            newFloorButton.interactable = true;
             canBuildTower = true;
         }
         if (goldCoinCount < 5)
         {
-            newDefenseButton.GetComponentInChildren<Text>().text = "Gold Coins Needed: " + (5 - goldCoinCount);
+            //newDefenseButton.GetComponentInChildren<Text>().text = "Gold Coins Needed: " + (5 - goldCoinCount);
+            newDefenseButton.interactable = false;
             canBuildDefense = false;
         }
         else if (goldCoinCount >= 5)
         {
-            newDefenseButton.GetComponentInChildren<Text>().text = "Add New Defense!";
+            //newDefenseButton.GetComponentInChildren<Text>().text = "Add New Defense!";
+            newDefenseButton.interactable = true;
             canBuildDefense = true;
         }
 
-        ninjaStarText.text = "Ninja Stars: " + ninjaStarCount;
-        goldCoinText.text = "Gold Coins: " + goldCoinCount;
-        towerHeightText.text = "Tower Height: " + towerHeight;
-        currentColorText.text = "Current Color: " + currentColor;
+        ninjaStarText.text = " " + ninjaStarCount;
+        goldCoinText.text = " " + goldCoinCount;
+        towerHeightText.text = " " + towerHeight;
         ninjaStarValue = towerSegments * 1f;
 
         /*if(ninjaStarCount >= 10+towerCost)
